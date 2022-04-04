@@ -3,3 +3,4 @@ yarn.lock
 generated
 dev.db
 migrations
+dev.db-journal

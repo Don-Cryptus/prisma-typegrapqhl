@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "start": "ts-node-dev --poll --respawn --transpile-only ./index.ts",
-    "generate": "prisma generate",
+    "dev": "ts-node-dev --poll --respawn --transpile-only ./index.ts",
+    "generate": "prisma migrate dev --name dev && prisma generate",
     "seed": "ts-node-dev --transpile-only ./prisma/seed.ts"
   },
   "dependencies": {

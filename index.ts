@@ -39,11 +39,11 @@ class CustomUserResolver {
     @Root() user: User,
     @Ctx() { prisma }: Context
   ): Promise<Post | undefined> {
-    const [favoritePost] = await prisma.user
-      .findUnique({ where: { id: user.id } })
-      .posts({ take: 1 });
+    const [favoritePost] = await prisma.user.findMany({
+      where: { id: user.id, AND: [{}], OR: { id: 'asd' } },
+    });
 
-    return favoritePost;
+    return undefined;
   }
 }
 

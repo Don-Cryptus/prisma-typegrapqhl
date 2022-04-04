@@ -13,19 +13,23 @@ generator typegraphql {
 }
 
 model User {
-  id    String  @default(cuid()) @id
-  email String  @unique
-  name  String?
+  id    String @id @default(cuid())
+  email String @unique
+  name  String
   posts Post[]
 }
 
 model Post {
-  id        String   @default(cuid()) @id
+  id        String   @id @default(cuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   published Boolean
   title     String
-  content   String?
+  content   String
+  number    Int      @default(0)
+  float     Float    @default(0.0)
+  bigInt    BigInt   @default(0)
+  decimal   Decimal  @default(0)
   author    User?    @relation(fields: [authorId], references: [id])
-  authorId  String?
+  authorId  String
 }
